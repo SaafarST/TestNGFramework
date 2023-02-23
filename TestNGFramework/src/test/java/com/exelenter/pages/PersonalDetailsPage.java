@@ -1,9 +1,9 @@
 package com.exelenter.pages;
 
+import com.exelenter.base.BaseClass;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utils.BaseClass;
 
 public class PersonalDetailsPage extends BaseClass {
     @FindBy(id = "personal_txtEmployeeId")

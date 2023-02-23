@@ -1,10 +1,15 @@
 package com.exelenter.testcases;
 
 
+import com.exelenter.base.BaseClass;
+import com.exelenter.utils.ConfigsReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.BaseClass;
-import utils.ConfigsReader;
+
+import static com.exelenter.base.PageInitializer.dashboardPage;
+import static com.exelenter.base.PageInitializer.loginPage;
+import static com.exelenter.utils.CommonMethods.click;
+import static com.exelenter.utils.CommonMethods.sendText;
 
 public class LoginTest extends BaseClass {
     /**

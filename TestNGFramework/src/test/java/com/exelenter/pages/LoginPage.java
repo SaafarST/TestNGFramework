@@ -1,10 +1,11 @@
 package com.exelenter.pages;
 
+import com.exelenter.base.BaseClass;
+import com.exelenter.utils.ConfigsReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utils.BaseClass;
-import utils.ConfigsReader;
+
 
 // Note: This is just a template for LoginPage where we store everything related to Login page here, in this class.
 //  In Page Object Model (Design Pattern), we organize our code by pages. Each web page will have their own class.

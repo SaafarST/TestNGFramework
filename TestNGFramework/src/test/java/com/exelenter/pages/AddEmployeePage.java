@@ -1,11 +1,12 @@
 package com.exelenter.pages;
 
+import com.exelenter.base.BaseClass;
+import com.exelenter.utils.ConfigsReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import utils.BaseClass;
-import utils.ConfigsReader;
+
 
 public class AddEmployeePage extends BaseClass {
     @FindBy(id = "firstName")

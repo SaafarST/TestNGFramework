@@ -1,5 +1,6 @@
 package com.exelenter.utils;
 
+import com.exelenter.base.PageInitializer;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import static utils.BaseClass.driver;
+import static com.exelenter.base.BaseClass.driver;
 
 /**
  * Note: This is our BANK, for reusing the methods elsewhere in the framework when we need it.
@@ -22,7 +23,7 @@ import static utils.BaseClass.driver;
  */
 
 
-public class CommonMethods extends PageInitializer{
+public class CommonMethods extends PageInitializer {
 
     /**
      * Method will switch focus to next window/tab based on the window title/name
