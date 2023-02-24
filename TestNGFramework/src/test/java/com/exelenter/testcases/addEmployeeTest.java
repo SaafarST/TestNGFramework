@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 
 public class addEmployeeTest extends BaseClass {
-    @Test
+    @Test(groups = "smoke")
     public void addEmployeeTest(){
         loginPage.loginToWebsite("username","password");
         pimPage.navigateToAddEmployee();

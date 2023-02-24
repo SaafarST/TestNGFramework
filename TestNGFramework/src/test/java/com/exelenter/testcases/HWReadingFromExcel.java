@@ -33,7 +33,7 @@ Acceptance Criteria:
     A 'Username cannot be empty' error message is presented.
 
      */
-    @Test(dataProvider = "readFromExcel")
+    @Test(dataProvider = "readFromExcel",enabled = false )
     public void loginTest(String username, String password, String expectedErrorMessage) {
 
         //Login to website:

@@ -15,7 +15,7 @@ public class LoginTest extends BaseClass {
     /**
      *  US 16457: As an Admin User, I should not be able to login to the application using invalid credentials.    <== High Level explanation of the feature.
      */
-   @Test
+   @Test(groups = "smoke")
     public void validAdminLogin(){
 
        loginPage.loginToWebsite("username","password");
@@ -23,7 +23,7 @@ public class LoginTest extends BaseClass {
        String actualValue = dashboardPage.welcome.getText();
        Assert.assertEquals(actualValue,expectedValue,"'Welcome Admin' text is incorrect");
    }
-   @Test
+   @Test(groups = "smoke")
     public void validUserInvalidPassword(){
        String invalidPassword = "MineLibe";
        String expectedErrorMessage = "Invalid credentials";
@@ -32,7 +32,7 @@ public class LoginTest extends BaseClass {
        click(loginPage.loginBtn);
        Assert.assertEquals(loginPage.loginErrorMessage,expectedErrorMessage,"Error message is incorrect.");
    }
-    @Test
+    @Test(groups = "smoke")
     public void validUserEmptyPassword() {
         String expectedErrorMessage = "Password cannot be empty";
 

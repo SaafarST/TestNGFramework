@@ -15,7 +15,7 @@ import java.time.Duration;
 
 public class BaseClass extends CommonMethods {
     public static WebDriver driver;
-    @BeforeMethod  //(alwaysRun = true)
+    @BeforeMethod  (alwaysRun = true)
     public static void setUp() {
         ConfigsReader.loadProperties(Constants.CONFIGURATION_FILEPATH); // Replaced hard-coded filePath with Constants
         switch (ConfigsReader.getProperties("browser").toLowerCase()) {
@@ -36,7 +36,7 @@ public class BaseClass extends CommonMethods {
         initialize();
     }
 
-    @AfterMethod  //(alwaysRun = true)
+    @AfterMethod  (alwaysRun = true)
     public static void tearDown() {
         try {
             Thread.sleep(2000);
