@@ -1,6 +1,7 @@
 package com.exelenter.testcases;
 
 import com.exelenter.base.BaseClass;
+import com.exelenter.utils.Constants;
 import com.exelenter.utils.ExcelUtility;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -66,8 +67,8 @@ public class AddEmployeeFromExcel extends BaseClass {
 
     @DataProvider(name = "readFromExcel")
     public Object[][] getDataFromExcel(){
-        String absolutePath = ExcelUtility.projectPath + "/testData/ExelenterEmployeesList.xlsx";  //Don't forget slash in front of testData
-        return ExcelUtility.readFromExcel(absolutePath, "Employee");
+        //String absolutePath = ExcelUtility.projectPath + "/testData/ExelenterEmployeesList.xlsx";  //Don't forget slash in front of testData
+        return ExcelUtility.readFromExcel(Constants.TESTDATA_FILEPATH, "Employee");
     }
 
 }

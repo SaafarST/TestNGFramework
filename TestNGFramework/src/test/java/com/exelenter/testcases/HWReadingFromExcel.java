@@ -1,6 +1,7 @@
 package com.exelenter.testcases;
 
 import com.exelenter.base.BaseClass;
+import com.exelenter.utils.Constants;
 import com.exelenter.utils.ExcelUtility;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -45,8 +46,8 @@ Acceptance Criteria:
 
     @DataProvider(name = "readFromExcel")
     public Object[][] getDataFromExcel(){
-        String absolutePath = ExcelUtility.projectPath + "/testData/LoginHWWithExcel1.xlsx";  //Don't forget slash in front of testData
-        return ExcelUtility.readFromExcel(absolutePath, "login&passwords");
+        //String absolutePath = ExcelUtility.projectPath + "/testData/LoginHWWithExcel1.xlsx";  //Don't forget slash in front of testData
+        return ExcelUtility.readFromExcel(Constants.TESTDATA_FILEPATH, "NegativeLoginTests");
     }
 
 }
