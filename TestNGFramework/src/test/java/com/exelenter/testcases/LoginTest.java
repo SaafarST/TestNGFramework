@@ -30,7 +30,7 @@ public class LoginTest extends BaseClass {
        sendText(loginPage.username, ConfigsReader.getProperties("username"));
        sendText(loginPage.password, invalidPassword);
        click(loginPage.loginBtn);
-       Assert.assertEquals(loginPage.loginErrorMessage,expectedErrorMessage,"Error message is incorrect.");
+       Assert.assertEquals(loginPage.loginErrorMessage.getText()  ,expectedErrorMessage,"Error message is incorrect.");
    }
     @Test(groups = "smoke")
     public void validUserEmptyPassword() {

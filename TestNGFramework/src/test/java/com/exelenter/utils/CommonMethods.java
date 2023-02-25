@@ -285,7 +285,7 @@ public class CommonMethods extends PageInitializer {
         jsExecutor().executeScript("window.scrollBy(0,-" + pixel + ")"); // "window.scrollBy(0,-500)"
     }
 
-    public static void takeScreenshot(String fileName) {
+    public static String  takeScreenshot(String fileName) {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         try {
@@ -294,6 +294,7 @@ public class CommonMethods extends PageInitializer {
             e.printStackTrace();
             System.out.println("Screenshot is not taken");
         }
+        return fileName;
     }
 
     /**
