@@ -11,10 +11,14 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.time.Duration;
+import java.time.Instant;
+
 public class Listener implements ITestListener {
     ExtentSparkReporter reporter;
     ExtentReports reports;
     ExtentTest test;
+    Instant startTime;
     @Override
     public void onTestStart(ITestResult result) {
         System.out.println("Test started " + result.getName());
@@ -63,11 +67,35 @@ public class Listener implements ITestListener {
          reports = new ExtentReports();
         reports.attachReporter(reporter);
 
+        startTime = Instant.now();
     }
 
     @Override
     public void onFinish(ITestContext context) {
         System.out.println("\n**********************************\n Test finished " + context.getName() +", " +context.getEndDate());
         reports.flush(); // Erases previous (old) data and creates new one.
+
+        Instant endTime = Instant.now();
+        Duration totalTime = Duration.between(startTime, endTime);
+        int milliseconds = totalTime.getNano() / 1_000_000;
+
+//        long seconds = TimeUnit.MILLISECONDS.toSeconds(totalTime.toMillis());
+//        long minutes = TimeUnit.MILLISECONDS.toMinutes(totalTime.toMillis());
+//        long hours = TimeUnit.MILLISECONDS.toHours(totalTime.toMillis());
+//        long days = TimeUnit.MILLISECONDS.toDays(totalTime.toMillis());
+
+        long seconds = totalTime.toSeconds();
+        long minutes = totalTime.toMinutes();
+        long hours = totalTime.toHours();
+        long days = totalTime.toDays();
+
+        System.out.println("\nTotal Test Completion Time: \nDays: " + days +
+                "\nHours: " + (hours % 24) +
+                "\nMinutes: " + (minutes % 60) +
+                "\nSeconds: " + (seconds % 60) +
+                "\nMilliseconds: " + milliseconds);
+
+        System.out.printf("Total Test Completion Time: %d Minutes %d Seconds, and %3d Milliseconds", minutes, seconds, milliseconds);
+
     }
 }
