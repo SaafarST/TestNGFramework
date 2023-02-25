@@ -25,6 +25,7 @@ public class BaseClass extends CommonMethods {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
+//              driver = new ChromeDriver();
             }
             case "firefox" -> {
                 System.setProperty("webdriver.gecko.driver", Constants.GECKO_DRIVER_PATH);
