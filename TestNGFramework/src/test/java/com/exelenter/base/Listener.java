@@ -31,7 +31,7 @@ public class Listener implements ITestListener {
         test.pass("Test case passed: "+result.getName());
 
         // Optionally, you can capture screenshot here, for each success test case. (Not recommended!).
-        test.addScreenCaptureFromPath(CommonMethods.takeScreenshot( "PASS/" + result.getName()));
+        //test.addScreenCaptureFromPath(CommonMethods.takeScreenshot( "PASS/" + result.getName()));
 
         test.log(Status.PASS, "Test Passed. This is coming from the log status");
         test.log(Status.PASS,"Test passed. This is coming from the log status");
@@ -62,9 +62,9 @@ public class Listener implements ITestListener {
         //Adding Reports:
         reporter = new ExtentSparkReporter(Constants.REPORT_FILEPATH);
         reporter.config().setTheme(Theme.DARK);
-        reporter.config().setDocumentTitle("Exelenter Test Report"); // This will show on the browser Tab, just like page title (driver.getTitle()).
-        reporter.config().setReportName("Exelenter Project Test Report"); // This will show in the top right corner of report Dashboard.
-         reports = new ExtentReports();
+        reporter.config().setDocumentTitle("Exelenter Test Report");      // This will show on the browser Tab, just like page title (driver.getTitle()).
+        reporter.config().setReportName("My Test Report");                // This will show on the report-page Dashboard.
+        reports = new ExtentReports();
         reports.attachReporter(reporter);
 
         startTime = Instant.now();

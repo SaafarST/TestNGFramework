@@ -10,7 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -289,10 +291,25 @@ public class CommonMethods extends PageInitializer {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(sourceFile, new File("screenshots/" + fileName + ".png"));
+            FileUtils.copyFile(sourceFile, new File("screenshots/" + fileName + "_" + getTimeStamp() + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Screenshot is not taken");
+        }
+        return fileName;
+    }
+    /**
+     * This method will take a screenshot based on the given web element
+     * @param element which its screenshot needs to be taken
+     * @param fileName screenshot file name, Defaulted to .png format (can be changed to .jpeg within the method if needed).
+     * @return .png file as a String
+     */
+    public static String takeScreenshot(WebElement element, String fileName) {
+        File sourceFile = element.getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(sourceFile, new File("screenshots/" + fileName + "_" + getTimeStamp() + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return fileName;
     }
@@ -326,5 +343,9 @@ public class CommonMethods extends PageInitializer {
         }
         return passWord;
     }
-
+    public static String getTimeStamp() {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss_SS"); // YYYY-MM-DD_Hour_Min_Sec_Milliseconds
+        return simpleDateFormat.format(date.getTime());
+    }
 }
